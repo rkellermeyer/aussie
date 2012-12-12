@@ -42,35 +42,6 @@ platforms :mri, :mingw do
   end
 end
 
-platforms :mri_18, :mingw_18 do
-  group :mysql do
-    gem "mysql", "~> 2.8.1"
-  end
-end
-
-platforms :mri_19, :mingw_19 do
-  group :mysql do
-    gem "mysql2", "~> 0.3.11"
-  end
-end
-
-platforms :jruby do
-  # jruby-openssl is bundled with JRuby 1.7.0
-  gem "jruby-openssl" if Object.const_defined?(:JRUBY_VERSION) && JRUBY_VERSION < '1.7.0'
-
-  group :mysql do
-    gem "activerecord-jdbcmysql-adapter"
-  end
-
-  group :postgresql do
-    gem "activerecord-jdbcpostgresql-adapter"
-  end
-
-  group :sqlite do
-    gem "activerecord-jdbcsqlite3-adapter"
-  end
-end
-
 group :development do
   gem "rdoc", ">= 2.4.2"
   gem "yard"
